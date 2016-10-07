@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Day from './Day';
+import loader from './../loader.svg';
 import axios from 'axios';
 
 class Weather extends Component {
@@ -60,9 +61,9 @@ class Weather extends Component {
 
   getTodayForecast() {
     if(this.state.weather !== null) {
-      return <div className="weather-temp">{ this.state.weather.current }</div>;
+      return <div className="weather-temp">{ Math.round(this.state.weather.current) + '˚' }</div>;
     } else {
-      return <div>Loading...</div>
+      return <div><img src={loader} className="loader" alt="Loading..." /></div>
     }
   }
 
@@ -71,20 +72,18 @@ class Weather extends Component {
       var days = [];
       var dayData = this.state.weather.daily;
       for(var i = 0; i < dayData.length; i++) {
-        console.log(dayData[i]);
-        days.push(<Day min={dayData[i].temperatureMin} max={dayData[i].temperatureMax} key={'day'+i}/>);
+        days.push(<Day min={dayData[i].temperatureMin} max={dayData[i].temperatureMax} num={i} key={'day'+i}/>);
       }
       return <div className="weather-forecast">
         {days}
       </div>;
     } else {
-      return <div>Loading...</div>
+      return;
     }
   }
 
   render() {
     return <div>
-      <div>Dark Sky Key: { 'hello ' + process.env.REACT_APP_DARK_SKY_KEY }</div>
       { this.getTodayForecast() }
       { this.get5DayForecast() }
     </div>;

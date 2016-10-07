@@ -1,24 +1,46 @@
 .App {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.loader {
+  animation: spin infinite 2s linear;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.weather-temp {
+  font-size: 10em;
+  font-weight: 900;
+  color: #fff;
 }
 
-.App-intro {
-  font-size: large;
+.weather-forecast {
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
+.weather-forecast .day {
+  padding: 10px;
+}
+
+.weather-forecast .day .max {
+  font-weight: 400;
+  color: #3BB7EA;
+}
+
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .weather-forecast {
+    flex-direction: column;
+  }
+  .weather-forecast .day {
+    padding: 0;
+  }
 }
