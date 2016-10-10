@@ -1,45 +1,20 @@
 import React, { Component } from 'react';
 import Day from './Day';
-import loaderback from './../svg/loaderback.svg';
-import loaderfront from './../svg/loaderfront.svg';
+import Loader from './Loader';
+import Location from './Location';
 import axios from 'axios';
 
 class Weather extends Component {
   constructor() {
     super();
-    this.state = { location: [null, null], weather: null };
+    this.state = { weather: null };
+    this.getWeather = this.getWeather.bind(this);
   }
 
-  componentWillMount() {
-    this.getLocation();
-  }
-
-  getLocation() {
-    var self = this;
-    function success(position) {
-      var latitude  = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      self.setState({ location: [latitude, longitude] });
-      self.getWeather();
-    };
-
-    function error() {
-      self.setState({ location: [null, null] });
-      console.log('There was an error.');
-    };
-
-    if (!navigator.geolocation) {
-      console.log('Browser doesn\'t support geolocation');
-      error();
-    }
-
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-
-  getWeather() {
+  getWeather(location) {
     var self = this;
     axios({
-      url: 'http://cors.io/?https://api.darksky.net/forecast/'+process.env.REACT_APP_DARK_SKY_KEY+'/'+this.state.location[0]+','+this.state.location[1],
+      url: 'https://crossorigin.me/https://api.darksky.net/forecast/'+process.env.REACT_APP_DARK_SKY_KEY+'/'+location[0]+','+location[1],
       method: 'get',
       responseType: 'json'
     })
@@ -60,18 +35,15 @@ class Weather extends Component {
   }
 
   getTodayForecast() {
-    if(this.state.weather !== null) {
+    if (this.state.weather !== null) {
       return <div className="weather-temp">{ Math.round(this.state.weather.current) + '˚' }</div>;
     } else {
-      return <div className="loader">
-        <img src={loaderback} className="loader1" alt="Loading..." />
-        <img src={loaderfront} className="loader2" alt="Loading..." />
-      </div>;
+      return <Loader />;
     }
   }
 
   get5DayForecast() {
-    if(this.state.weather !== null) {
+    if (this.state.weather !== null) {
       var days = [];
       var dayData = this.state.weather.daily;
       for(var i = 0; i < dayData.length; i++) {
@@ -89,6 +61,7 @@ class Weather extends Component {
     return <div>
       { this.getTodayForecast() }
       { this.get5DayForecast() }
+      <Location weather={this.getWeather} />
     </div>;
   }
 }
