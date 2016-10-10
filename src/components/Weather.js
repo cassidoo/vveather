@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Day from './Day';
-import loader from './../loader.svg';
+import loaderback from './../svg/loaderback.svg';
+import loaderfront from './../svg/loaderfront.svg';
 import axios from 'axios';
 
 class Weather extends Component {
@@ -16,7 +17,6 @@ class Weather extends Component {
   getLocation() {
     var self = this;
     function success(position) {
-      console.log('lol');
       var latitude  = position.coords.latitude;
       var longitude = position.coords.longitude;
       self.setState({ location: [latitude, longitude] });
@@ -63,7 +63,10 @@ class Weather extends Component {
     if(this.state.weather !== null) {
       return <div className="weather-temp">{ Math.round(this.state.weather.current) + '˚' }</div>;
     } else {
-      return <div><img src={loader} className="loader" alt="Loading..." /></div>
+      return <div className="loader">
+        <img src={loaderback} className="loader1" alt="Loading..." />
+        <img src={loaderfront} className="loader2" alt="Loading..." />
+      </div>;
     }
   }
 
@@ -72,7 +75,7 @@ class Weather extends Component {
       var days = [];
       var dayData = this.state.weather.daily;
       for(var i = 0; i < dayData.length; i++) {
-        days.push(<Day min={dayData[i].temperatureMin} max={dayData[i].temperatureMax} num={i} key={'day'+i}/>);
+        days.push(<Day icon={dayData[i].icon} min={dayData[i].temperatureMin} max={dayData[i].temperatureMax} num={i} key={'day'+i}/>);
       }
       return <div className="weather-forecast">
         {days}
