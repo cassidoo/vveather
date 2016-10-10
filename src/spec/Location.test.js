@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Weather from './../components/Weather';
+import Location from './../components/Location';
 import { shallow } from 'enzyme';
 
-it('renders the weather without crashing', () => {
+it('renders the location without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Weather />, div);
+  ReactDOM.render(<Location />, div);
 });
 
