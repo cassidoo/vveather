@@ -8,7 +8,20 @@
 }
 
 .loader {
-  animation: spin infinite 2s linear;
+  width: 80px;
+  height: 80px;
+}
+
+.loader1 {
+  position: absolute;
+  left: 0;
+  animation: spin infinite 3s linear alternate;
+}
+
+.loader2 {
+  position: absolute;
+  left: 0;
+  animation: spin infinite 3s linear alternate-reverse;
 }
 
 .weather-temp {
@@ -20,10 +33,12 @@
 .weather-forecast {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
 .weather-forecast .day {
   padding: 10px;
+  min-width: 100px;
 }
 
 .weather-forecast .day .max {
@@ -32,8 +47,11 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {
