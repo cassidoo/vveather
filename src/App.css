@@ -55,6 +55,7 @@ input {
   color: #fff;
   font-size: 3em;
   font-family: 'Exo 2', sans-serif;
+  margin: 40px 0;
   padding: 5px;
 }
 
@@ -72,8 +73,19 @@ input:focus {
 }
 
 @media (max-width: 768px) {
+  .App {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  .loader1, .loader2 {
+    top: 40px;
+    left: calc(50% - 40px);
+  }
   .weather-forecast {
     flex-direction: column;
+    align-items: center;
   }
   .weather-forecast .day {
     padding: 0;
