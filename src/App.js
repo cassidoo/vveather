@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import loader from './loader.svg';
 import './App.css';
 import Weather from './components/Weather';
 
