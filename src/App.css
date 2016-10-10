@@ -52,10 +52,12 @@ input {
   background: #2C2A36;
   border: 0;
   border-bottom: 2px solid #3BB7EA;
+  box-sizing: border-box;
   color: #fff;
   font-size: 3em;
   font-family: 'Exo 2', sans-serif;
   margin: 40px 0;
+  max-width: 100%;
   padding: 5px;
 }
 
@@ -78,6 +80,7 @@ input:focus {
     top: 0;
     left: 0;
     transform: translate(0, 0);
+    width: 100%;
   }
   .loader1, .loader2 {
     top: 40px;
