@@ -15,12 +15,14 @@
 .loader1 {
   position: absolute;
   left: 0;
+  width: 80px;
   animation: spin infinite 3s linear alternate;
 }
 
 .loader2 {
   position: absolute;
   left: 0;
+  width: 80px;
   animation: spin infinite 3s linear alternate-reverse;
 }
 
@@ -44,6 +46,21 @@
 .weather-forecast .day .max {
   font-weight: 400;
   color: #3BB7EA;
+}
+
+input {
+  background: #2C2A36;
+  border: 0;
+  border-bottom: 2px solid #3BB7EA;
+  color: #fff;
+  font-size: 3em;
+  font-family: 'Exo 2', sans-serif;
+  padding: 5px;
+}
+
+input:focus {
+  background: #413f4a;
+  outline: none;
 }
 
 @keyframes spin {
