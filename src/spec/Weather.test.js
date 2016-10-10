@@ -8,3 +8,7 @@ it('renders the weather without crashing', () => {
   ReactDOM.render(<Weather />, div);
 });
 
+it('renders the location', () => {
+  const wrapper = shallow(<Weather />);
+  expect(wrapper.find('Location').length).toBe(1);
+});

@@ -8,4 +8,13 @@ it('renders the zip code form without crashing', () => {
   ReactDOM.render(<Zipcode />, div);
 });
 
+it('renders input box', () => {
+  const wrapper = shallow(<Zipcode />);
+  expect(wrapper.find('input').length).toBe(1);
+});
+
+it('renders input with empty value', () => {
+  const wrapper = shallow(<Zipcode />);
+  expect(wrapper.find('input').prop('value')).toBe('');
+});
 

@@ -8,3 +8,7 @@ it('renders the location without crashing', () => {
   ReactDOM.render(<Location />, div);
 });
 
+it('renders Zipcode component', () => {
+  const wrapper = shallow(<Location />);
+  expect(wrapper.find('Zipcode').length).toBe(1);
+});
