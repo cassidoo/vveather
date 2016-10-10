@@ -47,7 +47,7 @@ class Location extends Component {
       return this.getZipcode();
     } else {
       this.getGeoLocation();
-      return null;
+      return this.getZipcode();
     }
   }
 }
