@@ -9,6 +9,14 @@ git clone https://github.com/cassidoo/vveather.git
 npm install
 ```
 
+You'll also need a [Dark Sky API Key](https://darksky.net/dev/) to run the
+project. Once you have your key, save it in an .env file in the root of the
+project like so:
+
+```
+REACT_APP_DARK_SKY_KEY=yourkeyhere
+```
+
 ## To Run
 
 This runs the app in development mode on `localhost:3000`.
