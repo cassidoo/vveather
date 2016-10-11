@@ -22,7 +22,6 @@ class Day extends Component {
 
   getIcon() {
     var condition = '' + this.props.icon;
-    console.log(condition);
     switch (condition) {
       case 'clear-night':
         return <img src={night} alt={condition} />;
