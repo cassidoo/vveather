@@ -3,22 +3,28 @@ VVeather
 
 A React app that gets you the weather.
 
+## To Download and Install
+```bash
+git clone https://github.com/cassidoo/vveather.git
+npm install
+```
+
 ## To Run
 
 This runs the app in development mode on `localhost:3000`.
-```
+```bash
 npm start
 ```
 
 ## To Test
 
-```
+```bash
 npm test
 ```
 
 ## To Build
 
-```
+```bash
 npm run build
 ```
 
