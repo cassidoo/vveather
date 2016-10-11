@@ -43,6 +43,10 @@
   min-width: 100px;
 }
 
+.weather-forecast .day img {
+  max-width: 120px;
+}
+
 .weather-forecast .day .max {
   font-weight: 400;
   color: #3BB7EA;
